@@ -8,6 +8,7 @@ from src.document_loader import load_uploaded_documents
 from src.text_splitter import split_documents
 from src.embeddings import get_embeddings
 from src.rag_pipeline import answer_question
+from src.retriever import HybridRetriever
 
 
 # -----------------------------------
@@ -87,15 +88,8 @@ if uploaded_files:
                 embedding=embeddings,
             )
 
-            retriever = vector_store.as_retriever(
-                search_type="mmr",
-                search_kwargs={
-                    "k": 4,
-                    "fetch_k": 12,
-                    "lambda_mult": 0.7,
-                },
-            )
-
+            retriever = HybridRetriever(vector_store)
+            
             st.session_state.retriever = retriever
 
             st.session_state.uploaded_file_signature = (
