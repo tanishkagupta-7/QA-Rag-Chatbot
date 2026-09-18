@@ -35,8 +35,6 @@ class HybridRetriever:
         self.keyword_retriever.k = 8
 
     def invoke(self, query):
-        """Retrieve documents using FAISS + BM25 and combine with RRF."""
-
         semantic_docs = self.semantic_retriever.invoke(query)
         keyword_docs = self.keyword_retriever.invoke(query)
 
@@ -45,7 +43,6 @@ class HybridRetriever:
 
         rrf_k = 60
 
-        # Semantic ranking
         for rank, document in enumerate(
             semantic_docs,
             start=1,
@@ -61,7 +58,6 @@ class HybridRetriever:
                 + 1 / (rrf_k + rank)
             )
 
-        # Keyword ranking
         for rank, document in enumerate(
             keyword_docs,
             start=1,
@@ -77,14 +73,12 @@ class HybridRetriever:
                 + 1 / (rrf_k + rank)
             )
 
-        # Combined RRF ranking
         ranked_documents = sorted(
             documents_by_id.items(),
             key=lambda item: scores[item[0]],
             reverse=True,
         )
 
-        # Return top 6 documents
         return [
             document
             for _, document in ranked_documents[:6]
@@ -92,7 +86,7 @@ class HybridRetriever:
 
 
 def get_retriever():
-    """Load the saved FAISS vector store and create a hybrid retriever."""
+    """Create the hybrid FAISS + BM25 retriever."""
 
     embeddings = get_embeddings()
 
@@ -103,26 +97,3 @@ def get_retriever():
     )
 
     return HybridRetriever(vector_store)
-
-
-if __name__ == "__main__":
-
-    retriever = get_retriever()
-
-    query = "What is Natural Language Processing?"
-
-    results = retriever.invoke(query)
-
-    print("=" * 60)
-    print("HYBRID RETRIEVAL TEST")
-    print("=" * 60)
-
-    print(f"Query: {query}")
-    print(f"Relevant chunks found: {len(results)}")
-
-    for i, document in enumerate(results, start=1):
-        print(f"\n--- Result {i} ---")
-        print(document.page_content[:500])
-        print(
-            f"Page: {document.metadata.get('page_label')}"
-        )
