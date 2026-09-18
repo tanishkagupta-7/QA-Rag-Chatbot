@@ -1,0 +1,11 @@
+.venv/
+.env
+__pycache__/
+*.py[cod]
+*.pyo
+vectorstore/
+data/documents/
+.streamlit/secrets.toml
+.vscode/
+.DS_Store
+Thumbs.db

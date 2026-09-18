@@ -1,0 +1,52 @@
+[
+    {
+        "question": "What is Natural Language Processing?",
+        "expected_answer": "NLP deals with natural or human language.",
+        "expected_pages": ["102", "106"]
+    },
+    {
+        "question": "What is Natural Language Understanding?",
+        "expected_answer": "Natural Language Understanding deals with understanding meanings and intentions encoded in language utterances.",
+        "expected_pages": ["23", "106"]
+    },
+    {
+        "question": "What is the role of NLP in human language technology?",
+        "expected_answer": "NLP is concerned with processing natural or human languages and supports human-language technology applications.",
+        "expected_pages": ["108", "112"]
+    },
+    {
+        "question": "What are human languages?",
+        "expected_answer": "Human languages are the natural languages used by people in everyday communication.",
+        "expected_pages": ["100", "108"]
+    },
+    {
+        "question": "What does Natural Language Processing involve?",
+        "expected_answer": "It involves building models of the minds of both the language producer and the comprehender, including aims, objectives, goals, plans, strategies, attitudes, representations, linguistic knowledge, world knowledge, common sense, reasoning, and logic, as well as mechanisms for encoding and decoding language utterances.",
+        "expected_pages": ["102", "106"]
+    },
+    {
+        "question": "What is the difference between natural languages and artificial languages?",
+        "expected_answer": "Natural languages are used by people for everyday communication, while artificial languages include computer or robot programming languages.",
+        "expected_pages": ["97", "96"]
+    },
+    {
+        "question": "What is language understanding concerned with?",
+        "expected_answer": "It is concerned with mental models that explain how meanings and intentions encoded in language utterances are understood.",
+        "expected_pages": ["105", "23"]
+    },
+    {
+        "question": "What are some applications of Natural Language Processing?",
+        "expected_answer": "NLP applications include machine translation, information retrieval, information extraction, automatic categorization, automatic summarization, text mining, and speech-related technologies.",
+        "expected_pages": ["109", "340"]
+    },
+    {
+        "question": "Who wrote the Natural Language Processing book?",
+        "expected_answer": "Kavi Narayana Murthy.",
+        "expected_pages": ["4"]
+    },
+    {
+        "question": "What is the capital of France?",
+        "expected_answer": "I don't know based on the provided document.",
+        "expected_pages": []
+    }
+]
